@@ -317,14 +317,11 @@ public class BinaryTree {
     }
 
     private int[] averageHelper(Node n) {
-
         // ADD YOUR CODE HERE -- USE DEPTH FIRST SEARCH OF
         // BINARY TREE (WHICH IS BASED ON RECURSION)
+        if (n == null) { return new int[]{0, 0}; }
 
-        // RECALL, IF THE TREE IS EMPTY, RETURN 0 FOR BOTH THE SUM AND
-        // COUNT LOCATIONS IN THE RETURNED ARRAY AS SHOWN BELOW, ELSE
-        // THE 'SUM' IS RETURNED IN INDEX LOCATION 0, AND COUNT IS LOCATION 1
-
-        return new int[]{0, 0};
+        return new int[] { averageHelper(n.left)[0] + averageHelper(n.right)[0] + n.data,
+                           averageHelper(n.left)[1] + averageHelper(n.right)[1] + 1 };
     }
 }
