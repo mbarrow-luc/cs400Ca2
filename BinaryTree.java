@@ -321,7 +321,11 @@ public class BinaryTree {
         // BINARY TREE (WHICH IS BASED ON RECURSION)
         if (n == null) { return new int[]{0, 0}; }
 
-        return new int[] { averageHelper(n.left)[0] + averageHelper(n.right)[0] + n.data,
-                           averageHelper(n.left)[1] + averageHelper(n.right)[1] + 1 };
+        int sumLeft = averageHelper(n.left)[0];
+        int sumRight = averageHelper(n.right)[0];
+        int countLeft = averageHelper(n.left)[1];
+        int countRight = averageHelper(n.right)[1];
+
+        return new int[] { sumLeft + sumRight + n.data, countLeft + countRight + 1 };
     }
 }
