@@ -223,11 +223,9 @@ public class BinaryTree {
     private void replaceValueHelper(Node node, int oldVal, int newVal) {
         // ADD YOUR CODE HERE -- USE DEPTH FIRST SEARCH OF
         // BINARY TREE (WHICH IS BASED ON RECURSION)
-        if (node == null) {return;}
+        if (node == null) { return; }
 
-        else if (node.data == oldVal) {
-            node.data = newVal;
-        }
+        if (node.data == oldVal) { node.data = newVal; }
 
         replaceValueHelper(node.left, oldVal, newVal);
         replaceValueHelper(node.right, oldVal, newVal);
@@ -249,12 +247,18 @@ public class BinaryTree {
      */
 
     private int findMinHelper(Node node) {
-
         // ADD YOUR CODE HERE -- USE DEPTH FIRST SEARCH OF
         // BINARY TREE (WHICH IS BASED ON RECURSION)
+        if (node == null) { return Integer.MAX_VALUE; }
 
+        int min = node.data;
+        int minLeft = findMinHelper(node.left);
+        int minRight = findMinHelper(node.right);
 
-        return Integer.MAX_VALUE;
+        if (minLeft < min) { min = minLeft; }
+        if (minRight < min) { min = minRight; }
+
+        return min;
     }
 
 
@@ -272,13 +276,11 @@ public class BinaryTree {
      */
 
     private int nodesGTHelper(Node node, int val) {
-
         // ADD YOUR CODE HERE -- USE DEPTH FIRST SEARCH OF
         // BINARY TREE (WHICH IS BASED ON RECURSION)
 
+
         // return -1; // RECALL, IF TREE IS EMPTY, RETURN -1
-
-
         return -1;
     }
 
