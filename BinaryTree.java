@@ -1,6 +1,6 @@
 
 /*
- * *** PLACE YOUR NAME / SECTION HERE ***
+ * *** Michael Barrow / COMP 400C 001 ***
  *
  * Homework # 2 (Programming Assignment). This Java class defines a few basic
  * manipulation operations of a binary trees.
@@ -278,10 +278,15 @@ public class BinaryTree {
     private int nodesGTHelper(Node node, int val) {
         // ADD YOUR CODE HERE -- USE DEPTH FIRST SEARCH OF
         // BINARY TREE (WHICH IS BASED ON RECURSION)
+        if (node == null) { return 0; }
 
+        if (node.data > val) {
+            return 1 + nodesGTHelper(node.left, val)
+                        + nodesGTHelper(node.right, val);
+        }
 
-        // return -1; // RECALL, IF TREE IS EMPTY, RETURN -1
-        return -1;
+        return nodesGTHelper(node.left, val)
+                + nodesGTHelper(node.right, val);
     }
 
 
